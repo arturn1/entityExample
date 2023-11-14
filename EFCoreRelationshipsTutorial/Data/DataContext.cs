@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EFCoreRelationshipsTutorial.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreRelationshipsTutorial.Data
 {
@@ -10,11 +11,11 @@ namespace EFCoreRelationshipsTutorial.Data
         }
 
         public DbSet<User> Users { get; set; }
-
         public DbSet<Character> Characters { get; set; }
-
         public DbSet<Weapon> Weapons { get; set; }
-
         public DbSet<Skill> Skills { get; set; }
+        //public DbSet<Base> Bases { get; set; }
+        public DbSet<WhatsApp> WhatsApps { get; set; }
+        public DbSet<Telegram> Telegram { get; set; }
     }
 }
