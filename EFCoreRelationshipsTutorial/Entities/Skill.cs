@@ -1,18 +1,19 @@
-﻿using System.Text.Json.Serialization;
+﻿using EFCoreRelationshipsTutorial.Enums;
+using System.Text.Json.Serialization;
 
 namespace EFCoreRelationshipsTutorial.Entities
 {
     public class Skill : Base
     {
-        public Skill(string name, int damage, Character? characters, List<WhatsApp>? whatsApps)
+        public Skill(string name, int damage, List<Character>? characters, List<Element>? elemType)
         {
             Name=name;
             Damage=damage;
             Characters=characters;
-            WhatsApps=whatsApps;
+            ElementType=elemType;
         }
 
-        public Skill(string name, int damage, Character characters)
+        public Skill(string name, int damage, List<Character?> characters)
         {
             Name=name;
             Damage=damage;
@@ -27,8 +28,12 @@ namespace EFCoreRelationshipsTutorial.Entities
         public string Name { get; set; } = string.Empty;
         public int Damage { get; set; }
         [JsonIgnore]
-        public Character? Characters { get; set; }
+        public List<Character>? Characters { get; set; }
+        public List<Element>? ElementType { get; set; } = new List<Element>();
 
-        public List<WhatsApp>? WhatsApps { get; set; }
+        public void sumTen()
+        {
+            this.Damage++;
+        } 
     }
 }

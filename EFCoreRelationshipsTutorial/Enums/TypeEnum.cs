@@ -1,12 +1,13 @@
-﻿namespace EFCoreRelationshipsTutorial.Enums
+﻿using EFCoreRelationshipsTutorial.Entities;
+
+namespace EFCoreRelationshipsTutorial.Enums
 {
-    public class ExEnum
-    {
-        public enum CallType
+        public enum ElemType
         {
-            wh,
-            tl
+            water,
+            fire,
+            earth,
+            air
         }
-    }
 }
 

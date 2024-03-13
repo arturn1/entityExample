@@ -1,6 +1,4 @@
-﻿using static EFCoreRelationshipsTutorial.Enums.ExEnum;
-
-namespace EFCoreRelationshipsTutorial.Entities
+﻿namespace EFCoreRelationshipsTutorial.Entities
 {
     public class Base
     {

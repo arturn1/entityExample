@@ -1,5 +1,5 @@
 ﻿using EFCoreRelationshipsTutorial.Entities;
-using Microsoft.EntityFrameworkCore;
+using EFCoreRelationshipsTutorial.Enums;
 
 namespace EFCoreRelationshipsTutorial.Data
 {
@@ -14,8 +14,11 @@ namespace EFCoreRelationshipsTutorial.Data
         public DbSet<Character> Characters { get; set; }
         public DbSet<Weapon> Weapons { get; set; }
         public DbSet<Skill> Skills { get; set; }
-        //public DbSet<Base> Bases { get; set; }
-        public DbSet<WhatsApp> WhatsApps { get; set; }
-        public DbSet<Telegram> Telegram { get; set; }
+        public DbSet<Element> Elements { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
