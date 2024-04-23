@@ -28,6 +28,11 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// using (var serviceScope = app.Services.CreateScope())
+// {
+//     serviceScope.ServiceProvider.GetService<DataContext>().Database.Migrate();
+// }
+
 app.UseCors(builder =>
         builder
         .WithOrigins("https://localhost:44413", "https://localhost:3000", "http://localhost:3000", "http://localhost:3002",

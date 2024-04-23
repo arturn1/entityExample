@@ -31,7 +31,13 @@ namespace EFCoreRelationshipsTutorial.Controllers
             return characters;
         }
 
-       
+
+        [HttpGet("")]
+        public async Task<ActionResult> Status()
+        {
+            return Ok(DateTime.Now);
+        }
+
 
         [HttpGet("GetSkill")]
         public async Task<ActionResult<List<Skill>>> GetSkill()
@@ -89,7 +95,6 @@ namespace EFCoreRelationshipsTutorial.Controllers
         [HttpPatch("EditUser")]
         public async Task<ActionResult<User>> EditUser(EditUserDto request)
         {
-            Thread.Sleep(1500);
             var user = await _context.Users.FindAsync(request.Id);
             if (user == null)
                 return BadRequest("User Not Found");
@@ -317,7 +322,7 @@ namespace EFCoreRelationshipsTutorial.Controllers
         public void FromFile(IFormFile request, string text)
         {
             var req = request.FileName;
-            var t = text.Trim(); ;
+            var t = text.Trim();
         }
     }
 }

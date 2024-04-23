@@ -98,4 +98,10 @@ namespace EFCoreRelationshipsTutorial.DTO
         public bool? isMale { get; set; }
         public ElemType ElementType { get; set; }
     }
+
+    public class AddFromBody
+    {
+        public IFormFile File { get; set; }
+        public string Text { get; set; }
+    }
 }
