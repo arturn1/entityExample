@@ -30,7 +30,7 @@ namespace EFCoreRelationshipsTutorial.DTO
         public List<Skill>? CreateSkillDto { get; set; }
 
     }
-    
+
     public class EditCharacterDto
     {
         public int Id { get; set; }
@@ -65,7 +65,7 @@ namespace EFCoreRelationshipsTutorial.DTO
     public class AddElementDto
     {
         public int SkillId { get; set; }
-        public int ElementId { get; set;}
+        public int ElementId { get; set; }
 
     }
 
@@ -103,5 +103,13 @@ namespace EFCoreRelationshipsTutorial.DTO
     {
         public IFormFile File { get; set; }
         public string Text { get; set; }
+    }
+
+    public class RecurringJobRequest
+    {
+        public string JobName { get; set; }  // Nome do Job
+        public int Interval { get; set; }    // Intervalo numérico (ex: 5 minutos)
+        public string IntervalType { get; set; } // Tipo de intervalo: "minutos", "horas", "dias"
+        public DateTime? StartAt { get; set; } // Data e hora de início opcional
     }
 }

@@ -35,7 +35,8 @@ namespace EFCoreRelationshipsTutorial.Controllers
         [HttpGet("")]
         public async Task<ActionResult> Status()
         {
-            return Ok(DateTime.Now);
+            var buildTime = Environment.GetEnvironmentVariable("BUILD_TIME");
+            return Ok(DateTime.Now.ToLocalTime() + $" - {buildTime}");
         }
 
 
@@ -52,8 +53,15 @@ namespace EFCoreRelationshipsTutorial.Controllers
         [HttpGet("GetUser/{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            Thread.Sleep(500);
             var user = await _context.Users.FindAsync(id);
+            //return BadRequest("Erro ao buscar usuario");
+            return user!;
+        }
+
+        [HttpGet("GetUsers")]
+        public async Task<ActionResult<List<User>>> GetUsers()
+        {
+            var user = await _context.Users.ToListAsync();
             //return BadRequest("Erro ao buscar usuario");
             return user!;
         }
@@ -319,10 +327,14 @@ namespace EFCoreRelationshipsTutorial.Controllers
         }
 
         [HttpPost("FormFile")]
-        public void FromFile(IFormFile request, string text)
+        public async Task<IActionResult> FromFile(IFormFile request, string text, Guid test, int date)
         {
-            var req = request.FileName;
-            var t = text.Trim();
+            var fileName = request.FileName;
+            var length = request.Length;
+            text = text.Trim();
+
+            return Ok($"Nome do arquivo: {fileName}, e o texto enviado foi: {text}, tamanho: {length}");
         }
+
     }
 }
