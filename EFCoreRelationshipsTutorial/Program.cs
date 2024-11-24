@@ -1,5 +1,6 @@
 global using EFCoreRelationshipsTutorial.Data;
 global using Microsoft.EntityFrameworkCore;
+using API.Middleware;
 using EFCoreRelationshipsTutorial.Helpers;
 using Hangfire; // Adicione Hangfire
 using Hangfire.MySql;
@@ -59,6 +60,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseWebSockets();
+app.UseLogger();
+app.UseErrorHandling();
 
 // Executar migrações iniciais de forma segura com tratamento de erros
 using (var serviceScope = app.Services.CreateScope())
